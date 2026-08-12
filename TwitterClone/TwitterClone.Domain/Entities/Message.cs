@@ -67,7 +67,7 @@ namespace TwitterClone.Domain.Entities
         {
             get { return _updatedAt; }
             set { _updatedAt = value; }
-        }
+        }   
 
     }
 }
