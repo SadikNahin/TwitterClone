@@ -4,23 +4,20 @@ using System.Text;
 
 namespace TwitterClone.Domain.Entities
 {
-    public class Tweet
+    public class Tweet : BaseEntity
     {
-        private Guid _id;
         private Guid _userId;
 
         private string _content;
 
-        private DateTime _createdAt;
-        private DateTime _updatedAt;
 
-
-        public Guid Id
+        public Tweet(string content) : base(Guid.NewGuid())
         {
-            get { return _id; }
+            _content = content;
         }
 
-       public Guid UserId
+
+        public Guid UserId
         {
             get { return _userId; }
             set { _userId = value; }
@@ -34,16 +31,9 @@ namespace TwitterClone.Domain.Entities
             set { _content = value; }
         }
 
-        public DateTime CreatedAt
-        {
-            get { return _createdAt; }
-        }
+        
 
-        public DateTime UpdatedAt
-        {
-            get { return _updatedAt; }
-            set { _updatedAt = value; }
-        }
+       
 
 
     }
