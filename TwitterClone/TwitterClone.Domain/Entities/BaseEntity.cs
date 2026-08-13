@@ -8,13 +8,13 @@ namespace TwitterClone.Domain.Entities
     {
         public Guid Id { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime _updatedAt { get; set; }
+        public DateTime? _updatedAt { get; set; }
         public Guid _createdBy { get; set; }
-        public Guid _updatedBy { get; set; }
+        public Guid? _updatedBy { get; set; }
 
 
 
-        public BaseEntity()
+        public BaseEntity(Guid guid)
         {
             Id = Guid.NewGuid();
             CreatedAt = DateTime.UtcNow;
