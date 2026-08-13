@@ -4,15 +4,18 @@ using System.Text;
 
 namespace TwitterClone.Domain.Entities
 {
-    public class Notification
+    public class Notification : BaseEntity
     {
         private Guid _userId;
         private string _type;
         private string _message;
         private bool _isRead;
-        
 
 
+        public Notification(string notificationType) : base(Guid.NewGuid())
+        {
+            _type=notificationType;
+        }
 
         public Guid UserId
         {
