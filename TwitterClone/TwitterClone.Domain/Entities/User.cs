@@ -20,9 +20,15 @@ namespace TwitterClone.Domain.Entities
         public string LastName { get; set; }
         public string Email { get; set; }
 
-        
+
+
+        public override string DescribeRecord()
+        {
+            var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, User: {FirstName} {LastName}, Email: {Email}";
+        }
 
        
-
+      
     }
 }

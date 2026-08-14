@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace TwitterClone.Domain.Entities
@@ -31,7 +32,11 @@ namespace TwitterClone.Domain.Entities
             set { _content = value; }
         }
 
-        
+        public override string DescribeRecord()
+        {
+            var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, Tweet: {Content}, UserId: {UserId}";
+        }
 
        
 

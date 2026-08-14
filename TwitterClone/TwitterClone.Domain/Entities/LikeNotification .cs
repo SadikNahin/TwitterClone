@@ -16,5 +16,14 @@ namespace TwitterClone.Domain.Entities
         {
             Message = message;
         }
+
+        public override string DescribeRecord()
+        {
+            var baseRecord= base.DescribeRecord();
+            return $"{baseRecord}, LikedByUserId: {LikedByUserId}";
+
+        }
+
+
     }
 }

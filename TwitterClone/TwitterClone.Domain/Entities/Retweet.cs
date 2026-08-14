@@ -37,6 +37,11 @@ namespace TwitterClone.Domain.Entities
         }
 
 
+        public override string DescribeRecord()
+        {
+            var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, Retweet: {Comment}, UserId: {UserId}, TweetId: {TweetId}";
+        }
 
 
 

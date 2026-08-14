@@ -43,8 +43,14 @@ namespace TwitterClone.Domain.Entities
             set { _isRead = value; }
         }
 
-        
 
-     }
+        public override string DescribeRecord()
+        {
+           var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, Notification: {Message}, Type: {Type}, UserId: {UserId}, IsRead: {IsRead}";
+        }   
+
+
+    }
 
 }

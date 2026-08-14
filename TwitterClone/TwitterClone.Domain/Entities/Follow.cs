@@ -26,7 +26,11 @@ namespace TwitterClone.Domain.Entities
         }
 
 
-
+        public override string DescribeRecord()
+        {
+            var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, Follow: FollowerId: {FollowerId}, FollowingId: {FollowingId}";
+        }
 
 
     }

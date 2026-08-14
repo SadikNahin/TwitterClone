@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace TwitterClone.Domain.Entities
 {
     public class SystemNotification : Notification
@@ -16,7 +13,11 @@ namespace TwitterClone.Domain.Entities
             Message = message;
         }
 
-
+        public override string DescribeRecord()
+        {
+            var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, SystemNotification: {Message}";
+        }
 
 
 
