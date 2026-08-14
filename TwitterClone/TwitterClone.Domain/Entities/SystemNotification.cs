@@ -10,5 +10,15 @@ namespace TwitterClone.Domain.Entities
         {
                 
         }
+
+        public void AddMessage(string message)
+        {
+            Message = message;
+        }
+
+
+
+
+
     }
 }
