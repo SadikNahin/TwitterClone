@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TwitterClone.Domain.Entities
 {
-    public class LikeNotification : Notification
+    public sealed class LikeNotification : Notification
     {
-        public LikeNotification() : base("Like")
-        {
-        }
-
         public Guid LikedByUserId { get; set; }
+
+        
+
+        public LikeNotification(Guid likedByUserId) : base("Like")
+        {
+            LikedByUserId = likedByUserId;
+        }
 
         public void AddMessage(string message)
         {
@@ -19,11 +20,13 @@ namespace TwitterClone.Domain.Entities
 
         public override string DescribeRecord()
         {
-            var baseRecord= base.DescribeRecord();
+            var baseRecord = base.DescribeRecord();
             return $"{baseRecord}, LikedByUserId: {LikedByUserId}";
-
         }
 
-
+        public override string GetMessage()
+        {
+            return $"User with ID {LikedByUserId} liked your post.";
+        }
     }
 }

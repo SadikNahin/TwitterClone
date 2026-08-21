@@ -4,14 +4,30 @@ using System.Text;
 
 namespace TwitterClone.Domain.Entities
 {
-    public class MentionNotification : Notification
+    public sealed class MentionNotification : Notification
     {
-        // Added property to hold the user who mentioned someone
         public Guid MentionedByUserId { get; private set; }
 
         public MentionNotification(Guid mentionedByUserId) : base("Mention")
         {
             MentionedByUserId = mentionedByUserId;
         }
+
+
+        public override string DescribeRecord()
+        {
+            var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, MentionedByUserId: {MentionedByUserId}";
+        }
+
+        public override string GetMessage()
+        {
+            return $"User with ID {MentionedByUserId} mentioned you in a post.";
+        }
+
+
+
+
+
     }
 }

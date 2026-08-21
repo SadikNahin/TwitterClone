@@ -51,7 +51,7 @@ namespace TwitterClone.Domain.Entities
         }   
 
 
-        public abstract string GetNotificaiton();
+        public abstract string GetMessage();
 
 
     }

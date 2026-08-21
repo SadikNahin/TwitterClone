@@ -1,7 +1,7 @@
 ﻿
 namespace TwitterClone.Domain.Entities
 {
-    public class SystemNotification : Notification
+    public sealed class SystemNotification : Notification
     {
         public SystemNotification() : base("System")
         {
@@ -19,7 +19,10 @@ namespace TwitterClone.Domain.Entities
             return $"{baseRecord}, SystemNotification: {Message}";
         }
 
-
+        public override string GetMessage()
+        {
+            return $"System Notification: Error";
+        }
 
     }
 }
