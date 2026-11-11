@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TwitterClone.Domain.Entities
 {
-    public class Tweet : BaseEntity
+    public class Tweet : BaseEntity, ILikeable
     {
         private Guid _userId;
 
@@ -32,14 +32,27 @@ namespace TwitterClone.Domain.Entities
             set { _content = value; }
         }
 
+        public void AddContent(Guid userId, string content)
+        {
+            _userId = userId;
+            _content = content;
+        }
+
         public override string DescribeRecord()
         {
             var baseRecord = base.DescribeRecord();
             return $"{baseRecord}, Tweet: {Content}, UserId: {UserId}";
         }
 
-       
 
+        public bool CanBeLiked()
+        {
+            if (string.IsNullOrWhiteSpace(Content))
+            {
+                return false;
+            }
+            return true;
+        }
 
     }
 }

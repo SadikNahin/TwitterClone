@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TwitterClone.Domain.Entities
 {
-    public sealed class MentionNotification : Notification
+    public  class MentionNotification : Notification
     {
         public Guid MentionedByUserId { get; private set; }
 
